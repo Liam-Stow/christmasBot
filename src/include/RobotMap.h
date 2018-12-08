@@ -45,5 +45,6 @@ public:
     // Superstructure Actuators
     shared_ptr<Talon> tlnShooter;
     shared_ptr<Talon> tlnRevealer;
+    shared_ptr<Solenoid> solShoot;
 };
 

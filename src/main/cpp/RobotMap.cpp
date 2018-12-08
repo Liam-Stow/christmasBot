@@ -10,4 +10,5 @@ RobotMap::RobotMap() {
     // Point superstructure actuators to new objects
     tlnShooter.reset(new Talon(pwmPort_spcShooter));
     tlnRevealer.reset(new Talon(pwmPort_spcRevealer));
+    solShoot.reset(new Solenoid(1));
 }
