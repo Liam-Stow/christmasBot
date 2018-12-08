@@ -10,11 +10,14 @@
 #include <Commands/Command.h>
 
 class CmdShoot : public frc::Command {
- public:
-  CmdShoot();
+public:
+  CmdShoot(double speed = 0.6);
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+
+private:
+  double m_speed;
 };

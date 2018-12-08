@@ -1,18 +1,21 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #include "Subsystems/SubShooter.h"
+#include "Robot.h"
 
-SubShooter::SubShooter() : Subsystem("SubShooter") {}
-
-void SubShooter::InitDefaultCommand() {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+SubShooter::SubShooter() : Subsystem("SubShooter") {
+  // Copy actuator pointer from robotMap
+  m_tlnShooter = Robot::robotMap->tlnShooter;
 }
 
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+void SubShooter::InitDefaultCommand() {}
+
+
+// Run the agitator in a given direction, defaults to clockwise
+void SubShooter::shoot(double speed) {
+  m_tlnShooter->Set(speed);
+}
+
+
+// Stop the agitator from moving
+void SubShooter::stop() {
+  m_tlnShooter->Set(0);
+}

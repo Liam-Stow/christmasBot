@@ -1,6 +1,7 @@
 #pragma once
 
 #include <WPILib.h>
+#include "Commands/CmdShoot.h"
 
 using namespace std;
 
@@ -10,14 +11,18 @@ using namespace std;
  * need to be made.
  */
 
+enum buttonID {
+  btnID_shoot = 1
+};
+
 class OI {
 private:
   shared_ptr<Joystick> controller;
 
+  shared_ptr<JoystickButton> btnShoot;
+
 public:
   OI();
   shared_ptr<Joystick> getController();
-
-
 
 };

@@ -20,6 +20,12 @@ enum CanID {
     canID_srxDriveBaseBackRight     = 5,
 };
 
+enum PWMPort {
+    // PWM Ports on RIO
+    pwmPort_spcAgitator     = 1,
+    pwmPort_spcShooter      = 2,
+};
+
 enum IOPort {
     //Sensors and stuff, example:
     ioPort_lidar        = 0,
@@ -30,10 +36,13 @@ class RobotMap {
 public:
     RobotMap();
 
-    //DriveBase Actuators
+    // DriveBase Actuators
     shared_ptr<WPI_TalonSRX> srxDriveBaseLeft;
     shared_ptr<WPI_TalonSRX> srxDriveBaseRight;
     shared_ptr<WPI_TalonSRX> srxDriveBaseLeftSlave;
     shared_ptr<WPI_TalonSRX> srxDriveBaseRightSlave;
+
+    // Superstructure Actuators
+    shared_ptr<Talon> tlnShooter;
 };
 

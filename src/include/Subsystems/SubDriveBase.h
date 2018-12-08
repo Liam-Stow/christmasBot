@@ -20,5 +20,5 @@ private:
 public:
   SubDriveBase();
   void InitDefaultCommand() override;
-  void drive(double speed, double rotation, bool squaredInput = false);
+  void drive(double speed, double rotation, bool squaredInput = true);
 };

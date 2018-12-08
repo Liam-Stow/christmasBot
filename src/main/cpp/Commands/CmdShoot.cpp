@@ -6,24 +6,38 @@
 /*----------------------------------------------------------------------------*/
 
 #include "Commands/CmdShoot.h"
+#include "Robot.h"
+#include <WPILib.h>
 
-CmdShoot::CmdShoot() {
+CmdShoot::CmdShoot(double speed) {
   // Use Requires() here to declare subsystem dependencies
-  // eg. Requires(Robot::chassis.get());
+  Requires(Robot::subShooter.get());
+  m_speed = speed;
+  SmartDashboard::PutNumber("shooter speed", speed);
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {}
+void CmdShoot::Initialize() {
+}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShoot::Execute() {}
+void CmdShoot::Execute() {
+  m_speed = SmartDashboard::GetNumber("shooter speed", m_speed);
+  Robot::subShooter->shoot(m_speed);
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShoot::IsFinished() { return false; }
+bool CmdShoot::IsFinished() { 
+  return false; 
+}
 
 // Called once after isFinished returns true
-void CmdShoot::End() {}
+void CmdShoot::End() {
+  Robot::subShooter->stop();
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShoot::Interrupted() {}
+void CmdShoot::Interrupted() {
+  End();
+}
