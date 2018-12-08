@@ -5,6 +5,11 @@ OI::OI() {
 
   btnShoot.reset(new JoystickButton(controller.get(), btnID_shoot));
   btnShoot->WhileHeld(new CmdShoot());
+
+  btnReveal.reset(new JoystickButton(controller.get(), btnID_reveal));
+  btnReveal->WhileHeld(new CmdReveal());
+
+
 }
 
 shared_ptr<Joystick> OI::getController() {

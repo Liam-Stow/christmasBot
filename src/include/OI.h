@@ -2,6 +2,7 @@
 
 #include <WPILib.h>
 #include "Commands/CmdShoot.h"
+#include "Commands/CmdReveal.h"
 
 using namespace std;
 
@@ -12,7 +13,8 @@ using namespace std;
  */
 
 enum buttonID {
-  btnID_shoot = 1
+  btnID_shoot = 1,
+  btnID_reveal = 2
 };
 
 class OI {
@@ -20,6 +22,7 @@ private:
   shared_ptr<Joystick> controller;
 
   shared_ptr<JoystickButton> btnShoot;
+  shared_ptr<JoystickButton> btnReveal;
 
 public:
   OI();
