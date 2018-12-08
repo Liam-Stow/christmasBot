@@ -3,6 +3,8 @@
 #include <SmartDashboard/SmartDashboard.h>
 
 shared_ptr<SubDriveBase> Robot::subDriveBase;
+shared_ptr<SubShooter> Robot::subShooter;
+
 shared_ptr<OI> Robot::oi;
 shared_ptr<RobotMap> Robot::robotMap;
 
@@ -12,6 +14,7 @@ void Robot::RobotInit() {
   // Create Subsystems after robotMap so subsystems can use all the devices created
   // in the robotMap
   subDriveBase.reset(new SubDriveBase());
+  subShooter.reset(new SubShooter());
 
   // Create operator interface after subsystems so commands can use all the stuff
   // in their required subsystems
