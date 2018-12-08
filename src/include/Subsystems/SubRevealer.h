@@ -8,13 +8,18 @@
 #pragma once
 
 #include <Commands/Subsystem.h>
+#include <WPILib.h>
+
+using namespace std;
 
 class SubRevealer : public frc::Subsystem {
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
+private:
+  shared_ptr<Talon> m_tlnRevealer;
 
- public:
+public:
   SubRevealer();
+  void reveal();
+  void reset();
+  void stop();
   void InitDefaultCommand() override;
 };

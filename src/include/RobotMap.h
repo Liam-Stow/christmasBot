@@ -22,7 +22,7 @@ enum CanID {
 
 enum PWMPort {
     // PWM Ports on RIO
-    pwmPort_spcAgitator     = 1,
+    pwmPort_spcRevealer     = 1,
     pwmPort_spcShooter      = 2,
 };
 
@@ -44,5 +44,6 @@ public:
 
     // Superstructure Actuators
     shared_ptr<Talon> tlnShooter;
+    shared_ptr<Talon> tlnRevealer;
 };
 

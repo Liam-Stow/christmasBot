@@ -6,13 +6,23 @@
 /*----------------------------------------------------------------------------*/
 
 #include "Subsystems/SubRevealer.h"
+#include "Robot.h"
 
-SubRevealer::SubRevealer() : Subsystem("SubRevealer") {}
-
-void SubRevealer::InitDefaultCommand() {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+SubRevealer::SubRevealer() : Subsystem("SubRevealer") {
+  //Get a local copy of motor contoller pointer from robot map
+  m_tlnRevealer = Robot::robotMap->tlnRevealer; 
 }
 
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+void SubRevealer::InitDefaultCommand() { }
+
+void SubRevealer::reveal() {
+  m_tlnRevealer->Set(0.3);
+}
+
+void SubRevealer::reset() {
+  m_tlnRevealer->Set(-0.3);
+}
+
+void SubRevealer::stop() {
+  m_tlnRevealer->Set(0);
+}
