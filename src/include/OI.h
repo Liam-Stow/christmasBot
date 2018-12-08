@@ -13,8 +13,9 @@ using namespace std;
  */
 
 enum buttonID {
-  btnID_shoot = 1,
-  btnID_reveal = 2
+  btnID_shoot       = 1,
+  btnID_reveal      = 2,
+  btnID_resetReveal = 3
 };
 
 class OI {
@@ -23,6 +24,8 @@ private:
 
   shared_ptr<JoystickButton> btnShoot;
   shared_ptr<JoystickButton> btnReveal;
+  shared_ptr<JoystickButton> btnResetReveal;
+
 
 public:
   OI();

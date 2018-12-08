@@ -16,11 +16,11 @@ SubRevealer::SubRevealer() : Subsystem("SubRevealer") {
 void SubRevealer::InitDefaultCommand() { }
 
 void SubRevealer::reveal() {
-  m_tlnRevealer->Set(0.3);
+  m_tlnRevealer->Set(0.1);
 }
 
 void SubRevealer::reset() {
-  m_tlnRevealer->Set(-0.3);
+  m_tlnRevealer->Set(-0.1);
 }
 
 void SubRevealer::stop() {

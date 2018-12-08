@@ -7,8 +7,10 @@ OI::OI() {
   btnShoot->WhileHeld(new CmdShoot());
 
   btnReveal.reset(new JoystickButton(controller.get(), btnID_reveal));
-  btnReveal->WhileHeld(new CmdReveal());
+  btnReveal->WhenPressed(new CmdReveal(3));
 
+  btnResetReveal.reset(new JoystickButton(controller.get(), btnID_resetReveal));
+  btnResetReveal->WhenPressed(new CmdReveal(3, true));
 
 }
 

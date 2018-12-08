@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include <Commands/Command.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <TimedRobot.h>

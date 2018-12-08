@@ -11,10 +11,13 @@
 
 class CmdReveal : public frc::Command {
  public:
-  CmdReveal();
+  CmdReveal(double seconds, bool m_backward = false);
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+private:
+  double m_seconds;
+  bool m_backward;
 };
