@@ -7,18 +7,18 @@
 
 #pragma once
 
-#include "Commands/Subsystem.h"
+#include <Commands/Subsystem.h>
 #include <WPILib.h>
 
 using namespace std;
 
-class SubStringer : public frc::Subsystem {
-private:
-  shared_ptr<Solenoid> _solStringer;
+class SubFeeder : public frc::Subsystem {
+ private:
+  shared_ptr<Talon> _tlnFeeder;
 
  public:
-  SubStringer();
+  SubFeeder();
   void InitDefaultCommand() override;
-  void startShooting();
-  void stopShooting();
+  void startFeeding();
+  void stopFeeding();
 };

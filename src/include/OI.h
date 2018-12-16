@@ -1,8 +1,7 @@
 #pragma once
 
 #include <WPILib.h>
-#include "Commands/CmdShoot.h"
-#include "Commands/CmdReveal.h"
+
 
 using namespace std;
 
@@ -14,8 +13,10 @@ using namespace std;
 
 enum buttonID {
   btnID_shoot       = 1,
-  btnID_reveal      = 2,
-  btnID_resetReveal = 3
+  btnID_feed        = 2,
+  btnID_reveal      = 3,
+  btnID_resetReveal = 4,
+  btnID_shootString = 5,
 };
 
 class OI {
@@ -23,8 +24,10 @@ private:
   shared_ptr<Joystick> controller;
 
   shared_ptr<JoystickButton> btnShoot;
+  shared_ptr<JoystickButton> btnFeed;
   shared_ptr<JoystickButton> btnReveal;
   shared_ptr<JoystickButton> btnResetReveal;
+  shared_ptr<JoystickButton> btnShootString;
 
 
 public:

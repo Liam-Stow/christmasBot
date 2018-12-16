@@ -5,20 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#include "Subsystems/SubStringer.h"
+#include "Robot.h"
 
-#include "Commands/Subsystem.h"
-#include <WPILib.h>
+SubStringer::SubStringer() : Subsystem("ExampleSubsystem") {
+  _solStringer = Robot::robotMap->solStringer;
+}
 
-using namespace std;
+void SubStringer::InitDefaultCommand() {
 
-class SubStringer : public frc::Subsystem {
-private:
-  shared_ptr<Solenoid> _solStringer;
+}
 
- public:
-  SubStringer();
-  void InitDefaultCommand() override;
-  void startShooting();
-  void stopShooting();
-};
+void SubStringer::startShooting() {
+  _solStringer->Set(true);
+}
+
+void SubStringer::stopShooting() {
+  _solStringer->Set(false);
+}

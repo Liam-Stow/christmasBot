@@ -5,14 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Subsystems/SubStringer.h"
+#pragma once
 
-SubStringer::SubStringer() : Subsystem("ExampleSubsystem") {}
+#include <Commands/Command.h>
 
-void SubStringer::InitDefaultCommand() {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
-}
-
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+class CmdFeed : public frc::Command {
+ public:
+  CmdFeed();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

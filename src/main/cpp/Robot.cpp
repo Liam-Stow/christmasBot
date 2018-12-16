@@ -6,6 +6,8 @@
 shared_ptr<SubDriveBase> Robot::subDriveBase;
 shared_ptr<SubShooter> Robot::subShooter;
 shared_ptr<SubRevealer> Robot::subRevealer;
+shared_ptr<SubStringer> Robot::subStringer;
+shared_ptr<SubFeeder> Robot::subFeeder;
 
 shared_ptr<OI> Robot::oi;
 shared_ptr<RobotMap> Robot::robotMap;
@@ -17,6 +19,8 @@ void Robot::RobotInit() {
   subDriveBase.reset(new SubDriveBase());
   subShooter.reset(new SubShooter());
   subRevealer.reset(new SubRevealer());
+  subStringer.reset(new SubStringer());
+  subFeeder.reset(new SubFeeder());
 
   // Create OI after subsystems so commands can use all the stuff in their required subsystems
   oi.reset(new OI());

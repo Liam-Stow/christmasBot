@@ -10,6 +10,8 @@
 #include "Subsystems/SubDriveBase.h"
 #include "Subsystems/SubShooter.h"
 #include "Subsystems/SubRevealer.h"
+#include "Subsystems/SubStringer.h"
+#include "Subsystems/SubFeeder.h"
 
 using namespace std;
 
@@ -18,6 +20,8 @@ class Robot : public frc::TimedRobot {
   static shared_ptr<SubDriveBase> subDriveBase;
   static shared_ptr<SubShooter> subShooter;
   static shared_ptr<SubRevealer> subRevealer;
+  static shared_ptr<SubStringer> subStringer;
+  static shared_ptr<SubFeeder> subFeeder;
 
   static shared_ptr<OI> oi;
   static shared_ptr<RobotMap> robotMap;

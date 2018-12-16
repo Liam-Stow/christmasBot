@@ -6,14 +6,16 @@
 /*----------------------------------------------------------------------------*/
 
 #include "Commands/CmdShootString.h"
+#include "Robot.h"
 
 CmdShootString::CmdShootString() {
-  // Use Requires() here to declare subsystem dependencies
-  // eg. Requires(Robot::chassis.get());
+  Requires(Robot::subShooter.get());
 }
 
 // Called just before this Command runs the first time
-void CmdShootString::Initialize() {}
+void CmdShootString::Initialize() {
+  Robot::subStringer->startShooting();
+}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdShootString::Execute() {}
@@ -22,8 +24,12 @@ void CmdShootString::Execute() {}
 bool CmdShootString::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdShootString::End() {}
+void CmdShootString::End() {
+  Robot::subStringer->stopShooting();
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShootString::Interrupted() {}
+void CmdShootString::Interrupted() {
+  End();
+}

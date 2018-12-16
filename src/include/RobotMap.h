@@ -12,24 +12,24 @@ using namespace std;
  * need to be made.
  */
 
+// DriveBase Actuator IDs
 enum CanID {
-    //DriveBase Actuator IDs
-    canID_srxDriveBaseFrontLeft     = 8,
-    canID_srxDriveBaseFrontRight    = 7,
-    canID_srxDriveBaseBackLeft      = 6,
-    canID_srxDriveBaseBackRight     = 5,
+    can_srxDriveBaseFrontLeft     = 8,
+    can_srxDriveBaseFrontRight    = 7,
+    can_srxDriveBaseBackLeft      = 6,
+    can_srxDriveBaseBackRight     = 5,
 };
 
-enum PWMPort {
-    // PWM Ports on RIO
-    pwmPort_spcRevealer     = 1,
-    pwmPort_spcShooter      = 2,
+// PWM Ports on RIO
+enum PwmID {
+    pwm_tlnFeeder   = 0,
+    pwm_tlnRevealer = 1,
+    pwm_tlnShooter  = 2,
 };
 
-enum IOPort {
-    //Sensors and stuff, example:
-    ioPort_lidar        = 0,
-    ioPort_autoChooser  = 1
+// Pnuematics control module connections
+enum PcmID {
+    pcm_solStringer = 0,
 };
 
 class RobotMap {
@@ -45,6 +45,7 @@ public:
     // Superstructure Actuators
     shared_ptr<Talon> tlnShooter;
     shared_ptr<Talon> tlnRevealer;
-    shared_ptr<Solenoid> solShoot;
+    shared_ptr<Talon> tlnFeeder;
+    shared_ptr<Solenoid> solStringer;   // Shoots silly string
 };
 
