@@ -12,15 +12,13 @@ shared_ptr<RobotMap> Robot::robotMap;
 
 void Robot::RobotInit() {
   robotMap.reset(new RobotMap());
-
-  // Create Subsystems after robotMap so subsystems can use all the devices created
-  // in the robotMap
+ 
+  // Create Subsystems after robotMap so subsystems can use all the devices created in the robotMap 
   subDriveBase.reset(new SubDriveBase());
   subShooter.reset(new SubShooter());
   subRevealer.reset(new SubRevealer());
 
-  // Create operator interface after subsystems so commands can use all the stuff
-  // in their required subsystems
+  // Create OI after subsystems so commands can use all the stuff in their required subsystems
   oi.reset(new OI());
 }
 
