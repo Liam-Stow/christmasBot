@@ -12,10 +12,10 @@ using namespace std;
  */
 
 enum buttonID {
-  btnID_shoot       = 1,
-  btnID_feed        = 2,
-  btnID_reveal      = 3,
-  btnID_resetReveal = 4,
+  btnID_feed        = 1,
+  btnID_reveal      = 2,
+  btnID_shoot       = 6,
+  btnID_resetReveal = 3,
   btnID_shootString = 5,
 };
 

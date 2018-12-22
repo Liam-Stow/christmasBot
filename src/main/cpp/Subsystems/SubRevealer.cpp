@@ -7,6 +7,7 @@
 
 #include "Subsystems/SubRevealer.h"
 #include "Robot.h"
+#include <iostream>
 
 SubRevealer::SubRevealer() : Subsystem("SubRevealer") {
   //Get a local copy of motor contoller pointer from robot map
@@ -16,11 +17,13 @@ SubRevealer::SubRevealer() : Subsystem("SubRevealer") {
 void SubRevealer::InitDefaultCommand() { }
 
 void SubRevealer::reveal() {
-  m_tlnRevealer->Set(0.1);
+  cout << "Roller Forward" << endl;
+  m_tlnRevealer->Set(1);
 }
 
 void SubRevealer::reset() {
-  m_tlnRevealer->Set(-0.1);
+  cout << "Roller Backward" << endl;
+  m_tlnRevealer->Set(-1);
 }
 
 void SubRevealer::stop() {

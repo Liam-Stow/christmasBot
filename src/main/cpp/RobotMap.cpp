@@ -11,5 +11,5 @@ RobotMap::RobotMap() {
     tlnShooter.reset(new Talon(pwm_tlnShooter));
     tlnRevealer.reset(new Talon(pwm_tlnRevealer));
     tlnFeeder.reset(new Talon(pwm_tlnFeeder));
-    solStringer.reset(new Solenoid(pcm_solStringer));
+    solStringer.reset(new DoubleSolenoid(pcm_solStringerForward, pcm_solStringerReverse));
 }

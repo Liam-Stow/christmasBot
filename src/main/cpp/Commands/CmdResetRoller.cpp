@@ -5,35 +5,34 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Commands/CmdFeed.h"
-#include "Robot.h" 
+#include "Commands/CmdResetRoller.h"
+#include "Robot.h"
 
-#include <iostream>
-
-CmdFeed::CmdFeed() {
+CmdResetRoller::CmdResetRoller() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(Robot::subFeeder.get());
+  Requires(Robot::subRevealer.get());
 }
 
 // Called just before this Command runs the first time
-void CmdFeed::Initialize() {
-  Robot::subFeeder->startFeeding();
-  cout << "Running feeder" << endl;
+void CmdResetRoller::Initialize() {
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdFeed::Execute() {}
+void CmdResetRoller::Execute() {
+  Robot::subRevealer->reset();
+
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdFeed::IsFinished() { return false; }
+bool CmdResetRoller::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdFeed::End() {
-  Robot::subFeeder->stopFeeding();
+void CmdResetRoller::End() {
+  Robot::subRevealer->stop();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdFeed::Interrupted() {
+void CmdResetRoller::Interrupted() {
   End();
 }

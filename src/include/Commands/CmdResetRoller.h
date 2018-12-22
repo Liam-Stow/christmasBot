@@ -5,23 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Subsystems/SubStringer.h"
-#include "Commands/CmdStopString.h"
-#include "Robot.h"
+#pragma once
 
-SubStringer::SubStringer() : Subsystem("ExampleSubsystem") {
-  _solStringer = Robot::robotMap->solStringer;
-  stopShooting();
-}
+#include <Commands/Command.h>
 
-void SubStringer::InitDefaultCommand() {
-  SetDefaultCommand(new CmdStopString());
-}
-
-void SubStringer::startShooting() {
-  _solStringer->Set(DoubleSolenoid::kForward);
-}
-
-void SubStringer::stopShooting() {
-  _solStringer->Set(DoubleSolenoid::kReverse);
-}
+class CmdResetRoller : public frc::Command {
+ public:
+  CmdResetRoller();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

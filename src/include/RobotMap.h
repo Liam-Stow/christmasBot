@@ -29,7 +29,8 @@ enum PwmID {
 
 // Pnuematics control module connections
 enum PcmID {
-    pcm_solStringer = 0,
+    pcm_solStringerForward = 1,
+    pcm_solStringerReverse = 2,
 };
 
 class RobotMap {
@@ -46,6 +47,6 @@ public:
     shared_ptr<Talon> tlnShooter;
     shared_ptr<Talon> tlnRevealer;
     shared_ptr<Talon> tlnFeeder;
-    shared_ptr<Solenoid> solStringer;   // Shoots silly string
+    shared_ptr<DoubleSolenoid> solStringer;   // Shoots silly string
 };
 

@@ -5,35 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Commands/CmdFeed.h"
-#include "Robot.h" 
+#include "Commands/CmdStopString.h"
+#include "Robot.h"
 
-#include <iostream>
-
-CmdFeed::CmdFeed() {
+CmdStopString::CmdStopString() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(Robot::subFeeder.get());
+  Requires(Robot::subStringer.get());
 }
 
 // Called just before this Command runs the first time
-void CmdFeed::Initialize() {
-  Robot::subFeeder->startFeeding();
-  cout << "Running feeder" << endl;
+void CmdStopString::Initialize() {
+  Robot::subStringer->stopShooting();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdFeed::Execute() {}
+void CmdStopString::Execute() {
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdFeed::IsFinished() { return false; }
+bool CmdStopString::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdFeed::End() {
-  Robot::subFeeder->stopFeeding();
+void CmdStopString::End() {
+  Robot::subStringer->startShooting();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdFeed::Interrupted() {
+void CmdStopString::Interrupted() {
   End();
 }

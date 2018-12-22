@@ -8,12 +8,16 @@
 #include "Commands/CmdShootString.h"
 #include "Robot.h"
 
+#include <iostream>
+
 CmdShootString::CmdShootString() {
   Requires(Robot::subShooter.get());
 }
 
 // Called just before this Command runs the first time
 void CmdShootString::Initialize() {
+  cout << "Running stringer" << endl;
+
   Robot::subStringer->startShooting();
 }
 

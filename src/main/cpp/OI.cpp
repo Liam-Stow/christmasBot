@@ -2,6 +2,7 @@
 #include "Robot.h"
 #include "Commands/CmdShoot.h"
 #include "Commands/CmdReveal.h"
+#include "Commands/CmdResetRoller.h"
 #include "Commands/CmdShootString.h"
 #include "Commands/CmdFeed.h"
 
@@ -10,19 +11,19 @@ OI::OI() {
   controller.reset(new Joystick(0));
 
   btnShoot.reset(new JoystickButton(controller.get(), btnID_shoot));
-  btnShoot->WhileHeld(new CmdShoot());
+  btnShoot->WhileHeld(new CmdShoot(1));
 
   btnReveal.reset(new JoystickButton(controller.get(), btnID_reveal));
-  btnReveal->WhenPressed(new CmdReveal(3));
+  btnReveal->WhileHeld(new CmdReveal());
 
   btnResetReveal.reset(new JoystickButton(controller.get(), btnID_resetReveal));
-  btnResetReveal->WhenPressed(new CmdReveal(3, true));
+  btnResetReveal->WhileHeld(new CmdResetRoller());
 
   btnShootString.reset(new JoystickButton(controller.get(), btnID_shootString));
-  btnShootString->WhenPressed(new CmdShootString());
+  btnShootString->WhileHeld(new CmdShootString());
 
   btnFeed.reset(new JoystickButton(controller.get(), btnID_feed));
-  btnFeed->WhenPressed(new CmdFeed());
+  btnFeed->WhileHeld(new CmdFeed());
 
 }
 

@@ -14,7 +14,7 @@ using namespace std;
 
 class SubStringer : public frc::Subsystem {
 private:
-  shared_ptr<Solenoid> _solStringer;
+  shared_ptr<DoubleSolenoid> _solStringer;
 
  public:
   SubStringer();
